@@ -1,0 +1,29 @@
+From 3fe4102c9a92470c77e7837c408897b767424dc3 Mon Sep 17 00:00:00 2001
+From: Francisco Boni <boboniboni@gmail.com>
+Date: Sat, 18 Dec 2021 11:10:58 -0300
+Subject: [PATCH] Fix PGO Build
+
+---
+ wscript | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/wscript b/wscript
+index 37a24e8..39f148a 100644
+--- a/wscript
++++ b/wscript
+@@ -324,9 +324,9 @@ def build_spec(bld, path):
+         test_cflags    = ['']
+         test_linkflags = ['']
+         if bld.is_defined('HAVE_GCOV'):
+-            test_lib       += ['gcov']
+-            test_cflags    += ['--coverage']
+-            test_linkflags += ['--coverage']
++            #test_lib       += ['gcov']
++            #test_cflags    += ['--coverage']
++            #test_linkflags += ['--coverage']
+             if bld.env.DEST_OS not in ['darwin', 'win32']:
+                 test_lib += ['rt']
+ 
+-- 
+2.34.1
+
